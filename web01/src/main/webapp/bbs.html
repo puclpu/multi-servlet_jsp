@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	background: lime;
+}
+</style>
+</head>
+<body>
+	<h3>게시판 글쓰기 화면입니다.</h3>
+	<form action="insert2.jsp">
+		게시판 id: <input type="text" name="id"> <br> 게시판 title: <input
+			type="text" name="title"> <br> 게시판 content: <input
+			type="text" name="content"> <br> 게시판 writer: <input
+			type="text" name="writer"> <br>
+		<button>게시판 글작성 처리</button>
+	</form>
+
+	<hr color="yellow">
+
+	<h3>게시판 수정 화면입니다.</h3>
+	<form action="update.jsp">
+		게시판 id: <input type="text" name="id"> <br> 게시판 title: <input
+			type="text" name="title"> <br> 게시판 content: <input
+			type="text" name="content"> <br> 게시판 writer: <input
+			type="text" name="writer"> <br>
+		<button>게시판 글수정 처리</button>
+	</form>
+
+	<hr color="yellow">
+
+	<h3>게시판 삭제 화면입니다.</h3>
+	<form action="delete.jsp">
+		게시판 id: <input type="text" name="id"> <br> 게시판 title: <input
+			type="text" name="title"> <br> 게시판 content: <input
+			type="text" name="content"> <br> 게시판 writer: <input
+			type="text" name="writer"> <br>
+		<button>게시판 글삭제 처리</button>
+	</form>
+
+	<hr color="yellow">
+
+	<h3>게시판 검색 화면입니다.</h3>
+	<a href="read.html">
+		<button>one</button>
+	</a>
+	<br>
+	<a href="all.jsp">
+		<button>all</button>
+	</a>
+
+
+</body>
+</html>

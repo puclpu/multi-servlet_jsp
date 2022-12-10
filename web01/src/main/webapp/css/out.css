@@ -1,0 +1,6 @@
+@charset "UTF-8";
+body {
+	background: lime; /* 배경색 지정 */
+	color: black; /* 글자색 지정 */
+	/* ctrl + / : 자동주석 */
+}

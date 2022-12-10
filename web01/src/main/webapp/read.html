@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- CDN 방식으로 연결하자! -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<h3>게시물검색화면</h3>
+	<hr>
+	<a href="http://localhost:8989/web01/one.jsp?id=100">no가 100번인 게시물 검색</a> <br>
+	<a href="http://localhost:8989/web01/one.jsp?id=101">no가 101번인 게시물 검색</a> <br>
+	<a href="http://localhost:8989/web01/one.jsp?id=102">no가 102번인 게시물 검색</a>
+	<hr>
+	<form action="one.jsp">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>항목명</th>
+					<th>데이터입력</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>아이디</td>
+					<td><input name="id" value="100"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="submit" class="btn btn-warning">서버로 전송</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<a href="bbs.html">첫페이지로</a>
+</body>
+</html>
