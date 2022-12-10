@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+
+#total{
+	width: 800px;
+	height: 800px;
+	color: black;
+	font: 17px bold;
+	background-image: url("../img/back.png");
+}
+
+#top{
+	width: 800px;
+	height: 50px;
+	background-color: #e6ffe6; 
+}
+
+#top2{
+	width: 250px;
+	height: 50px;
+	background: #ffffe5;
+	color: black;
+	top: 16px;
+	right: 5px;
+	position: fixed;
+}
+
+#center{
+	width: 800px;
+	height: 700px;
+	padding-left: 5px;
+}
+
+a{
+	text-decoration: none; /* 밑줄 삭제 */
+}
+
+a:hover{ /* 가상으로 a태그 위에 마우스를 올렸다고 가정하고 스타일 지정 (가상선택자) */
+	text-decoration: overline;
+	background: white;
+	color: red;
+}
+
+a:visited{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+	float: left;
+	padding: 15px; /* li사이의 여백 */
+}
+
+li:nth-child(2n){ /* 짝수인 li에 스타일 적용 */
+	background: #e5ecff;
+}
+
+li:nth-child(2n+1){ /* 홀수인 li에 스타일 적용 */
+	background: #ece5ff;
+}
+
+li:first-child{
+	border-radius: 15px 0 0 15px;
+}
+
+li:last-child {
+	border-radius: 0 15px 15px 0;
+}
+
+table{
+	background: #e5f2ff;
+	color: blue;
+	text-align: center;
+	font: 22px;
+}
