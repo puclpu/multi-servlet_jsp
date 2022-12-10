@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(function () {
+		$('#search').click(function () {
+			company = $('#company').val()
+			result = "https://www.jobkorea.co.kr/Search/?stext=" + company
+			location.href = result
+		})
+	})
+</script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+	google.charts.setOnLoadCallback(drawVisualization);
+
+	function drawVisualization() {
+		// Some raw data (not necessarily accurate)
+		var data = google.visualization.arrayToDataTable([
+				[ 'Year', '매출액', '영업이익', '당기순이익', '총자산증가율' ],
+				[ '2018', 5406, 160, 133, 3297 ],
+				[ '2019', 5205, 66, -36, 3218 ],
+				[ '2020', 5458, 165, 123, 3567 ],
+				[ '2021', 6125, 211, 147, 3918 ] ]);
+
+		var options = {
+			title : '캐논코라아 재무분석',
+			vAxis : {
+				title : '억'
+			},
+			hAxis : {
+				title : '년도'
+			},
+			seriesType : 'bars',
+			series : {
+				5 : {
+					type : 'line'
+				}
+			}
+		};
+
+		var chart = new google.visualization.ComboChart(document
+				.getElementById('chart_div'));
+		chart.draw(data, options);
+	}
+</script>
+</head>
+<body>
+	<h2>캐논 코리아</h2>
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+	<h4>찾아오시는 길</h4>
+	<div id="map" style="width: 900px; height: 350px;"></div>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3831fd25872e1a60b55b1a9c0066ca7c"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(37.5094615, 127.0639722), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨
+		};
+
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+		// 마커가 표시될 위치입니다 
+		var markerPosition = new kakao.maps.LatLng(37.5094615, 127.0639722);
+		
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+			position : markerPosition
+		});
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+
+		// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+		// marker.setMap(null);
+	</script>
+	
+	<div id="apply_div" style="width: 900px; height: 350px;">
+		<br> <br> <br>
+		다른 회사 알아보기 : <input id = "company">
+		<button id="search">검색</button>
+	</div>
+</body>
+</html>

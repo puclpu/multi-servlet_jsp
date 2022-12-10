@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(function() {
+		//특정한 이벤트(상황)가 발생하면 자동호출되는 콜백함수
+		$('#b1').click(function() {
+			// drug.json을 호출
+			$.ajax({
+				url : '../data/drug.json', //(상대주소)
+				async : false,
+				success : function(doc) {
+					//alert('받은 데이터는 ' + doc)
+					//for + for-each
+					//funtion(x, y) ==> x: index, y:one(json)
+					//doc ==> [{키:값, 키:값, 키:값},{},{},{},{}]
+					$(doc).each(function(index, drug) {
+						//console.log(index + ">> " + person)
+						//{"id":1,"email":"sutting0@friendfeed.com","car":"Volvo"}
+						id = drug.id //person(json).id(key)하면 value를 추출
+						company = drug.company
+						name = drug.name
+						color = drug.color
+						console.log(index + ">> " + id + " " + company + " " + name + " " + color)
+						
+						//내 서버에서 받아서 db에 넣어주는 페이지를 호출
+						//ajax필요.
+						$.ajax({
+							url : 'db_create2.jsp',
+							data : {
+								id : id,
+								company : company,
+								name : name,
+								color : color
+							},
+							success : function() {
+								console.log('db에 넣기 성공')
+							}
+						})
+					})
+				}
+			})
+		})
+
+		$('#b2').click(function() {
+			// drug.json을 호출
+			idValue = $('#id').val()
+			$.ajax({
+				url : 'db_create3.jsp', //(상대주소)
+				data : {id : idValue},
+				success : function(doc) {
+					alert(doc)
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+<button id="b1">drug.json db에 넣기</button> <br>
+<input id = "id" placeholder="id입력">
+<button id="b2">drug.json db에서 가져오기</button>
+
+</body>
+</html>

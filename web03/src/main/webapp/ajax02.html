@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script>
+	$(function () {
+		$('#b1').click(function () {
+			$.ajax({
+				/* json형태로 표기 (key : value) */
+				url : "data/rank.xml",
+				success : function (x) {
+					alert('성공, 받은 데이터는 ' + x)
+					$('#d1').html('성공 받은 데이터는 ' + x + "<br>")
+					list = $(x).find('rank')
+					alert(list.length + "개")
+					for (var i = 0; i < list.length; i++) {
+						name = $(list[i]).find('name').text()
+						tel = $(list[i]).find('tel').text()
+						$('#d1').append(name + ", " + tel + "<br>")
+					}
+					
+				},
+				error : function (e) {
+					// 실패했을 때 처리할 부분
+					// success는 필수, error는 선택
+					alert('실패, 실패내용 : ' + e)
+				
+				}
+			}) /* ajax */
+		}) /* b1 */
+		
+		$('#b2').click(function () {
+			$.ajax({
+				/* json형태로 표기 (key : value) */
+				url : "data/rank.json",
+				success : function (x) {
+					alert('성공, 받은 데이터는 ' + x)
+					$('#d2').html('성공 받은 데이터는 ' + x + "<br>")
+					list = x.rank // 받은 데이터에서 rank 카의 값을 리스트(배열)로 추출
+					alert(list.length + "개")
+					for (i = 0; i < list.length; i++) {
+						n = list[i].name
+						t = list[i].tel
+						$('#d2').append(n + ', ' + t +'<br>')
+					}
+					
+					
+				},
+				error : function (e) {
+					// 실패했을 때 처리할 부분
+					// success는 필수, error는 선택
+					alert('실패, 실패내용 : ' + e)
+				
+				}
+			}) /* ajax */
+		}) /* b2 */
+		
+		$('#b3').click(function () {
+			$.ajax({
+				/* json형태로 표기 (key : value) */
+				url : "data/rank2.xml",
+				success : function (x) {
+					alert('성공, 받은 데이터는 ' + x)
+					$('#d3').html('성공 받은 데이터는 ' + x + "<br>")
+					list = $(x).find('winner')
+					alert(list.length + "개")
+					for (var i = 0; i < list.length; i++) {
+						y = $(list[i]).find('year').text()
+						n = $(list[i]).find('name').text()
+						c = $(list[i]).find('class').text()
+						f = $(list[i]).find('field').text()
+						$('#d3').append(n + ", " + y + ", " + c + ", " + f + "<br>")
+					}
+					
+				},
+				error : function (e) {
+					// 실패했을 때 처리할 부분
+					// success는 필수, error는 선택
+					alert('실패, 실패내용 : ' + e)
+				
+				}
+			}) /* ajax */
+		}) /* b3 */
+		
+		$('#b4').click(function () {
+			alert('됨?')
+			$.ajax({
+				/* json형태로 표기 (key : value) */
+				url : "data/dataset.xml",
+				success : function (x) {
+					alert('성공, 받은 데이터는 ' + x)
+					$('#d4').html('성공 받은 데이터는 ' + x + "<br>")
+					list = $(x).find('record')
+					alert(list.length + "개")
+					for(i = 0; i < list.length; i++) {
+						id = $(list[i]).find('id').text()
+						email = $(list[i]).find('email').text()
+						gender = $(list[i]).find('gender').text()
+						$('#d4').append(id + ", " + email + ", " + gender + "<br>")
+					}
+					
+				},
+				error : function (e) {
+					// 실패했을 때 처리할 부분
+					// success는 필수, error는 선택
+					alert('실패, 실패내용 : ' + e)
+				
+				}
+			}) /* ajax */
+		}) /* b4 */
+
+		$('#b5').click(function () {
+			alert('됨?')
+			$.ajax({
+				/* json형태로 표기 (key : value) */
+				url : "data/MOCK_DATA.json",
+				success : function (x) {
+					alert('성공')
+					/* $('#d5').html('성공 받은 데이터는 ' + x + "<br>") */
+					list = x
+					alert(list.length + "개")
+					for (i = 0; i < list.length; i++) {
+						i = list[i].id
+						n = list[i].name
+						e = list[i].email
+						a = list[i].address
+						$('#d5').append(i + ', ' + n + ', ' + e + ', ' + a + '<br>')
+					}
+					
+				},
+				error : function (e) {
+					// 실패했을 때 처리할 부분
+					// success는 필수, error는 선택
+					alert('실패, 실패내용 : ' + e)
+				
+				}
+			}) /* ajax */
+		}) /* b4 */
+		
+	})
+</script>
+</head>
+<body>
+<!-- a태그는 호출하면 페이지가 순서대로 넘어가는 동기통신 -->
+<!-- <a href="ok.html">공공데이터 포탈 요청</a>
+<a href="tour.html">주변 맛집 정보 요청</a>
+<a href="weather.html">기상청 정보 요청</a> -->
+<button id = "b1">XML</button>
+<button id = "b2">JSON</button>
+<button id = "b3">XML2</button>
+<button id = "b4">mockaroo smaple(XML)</button>
+<button id = "b5">mockaroo smaple(JSON)</button>
+<hr>
+<div id = "d1" style="background: yellow;"></div> <br>
+<div id = "d2" style="background: pink;"></div> <br>
+<div id = "d3" style="background: lime;"></div> <br>
+<div id = "d4" style="background: lightblue;"></div> <br>
+<div id = "d5" style="background: orange;"></div> <br>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(function () {
+		$('#addtext').click(function () {
+			text = $('#text').val()
+			result = $('#result')
+			result.append(text + '<br>')
+		})
+		
+		$('#addcar').click(function () {
+			result = $('#result')
+			result.append('<img src=img/car.jpeg width=200px><br>')
+		})
+	})
+</script>
+</head>
+<body>
+입력내용: <input id="text">
+<button id="addtext">글자 추가</button>
+<button id="addcar">자동차 추가</button>
+<div id="result" style="width: 500px; height: 500px;"></div>
+</body>
+</html>

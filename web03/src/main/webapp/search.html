@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+
+<script>
+// $() : 선택자
+
+// body부분을 DOM-Tree로 읽어서 준비가 되면,
+// 입력값으로 있는 익명함수를 실행해주세요
+	$(function () {
+		
+		// button이 클릭되면, 함수부분을 호출(콜백함수)
+		// html 태그 중에서 선택할 수 있는 방법(태그명, 클래스명, id명)
+		$('#b1').click(function () {
+			word = $('#word').val();
+			location.href = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=" + word;
+		})
+		
+		$('#b2').click(function () {
+			trip = $('#trip').val();
+			location.href = "https://kin.naver.com/search/list.naver?query=" + trip;
+		})
+		$('#b3').click(function () {
+			buy = $('#buy').val();
+			location.href = "https://shoppinghow.kakao.com/search/" + buy;
+		})
+	})
+</script>
+</head>
+<body>
+검색할 단어 입력 : <input id = "word" style="border-color: green;">
+<button id = "b1">네이버검색시작</button>
+<hr>
+어디로 가고 싶나요? <input id = "trip" style="border-color: green;">
+<button id = "b2">지식인 검색</button>
+<hr>
+사고 싶은 것은? <input id ="buy" style="border-color: yellow;">
+<button id = "b3">다음쇼핑검색</button>
+</body>
+</html>

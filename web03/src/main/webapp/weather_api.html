@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+	
+</script>
+<script type="text/javascript" src="js/cors.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax({
+				crossOrigin : true,
+				url : 'https://api.openweathermap.org/data/2.5/weather?lat=37.5683&lon=126.9778&appid=5ebe3b3b8985984e927728bc8d908d60',
+				data : 'json',
+				success : function(x) {
+				console.log(x);
+				//alert(x.coord.lat)
+				//alert(x.weather.length)
+				list = x.weather
+				//alert(list.length)
+				main = list[0].main
+				//alert(main)
+				// weather main 가져오기
+				speed = x.wind.speed
+				
+				$('div').html('서울은 지금 ' + main + ' 풍속은 ' + speed + '입니다.')
+				}
+			}) //ajax
+		}) //b1
+	})
+</script>
+</head>
+<body>
+	<button id="b1">날씨 알아오기(seoul)</button>
+	<hr color="red">
+	<div></div>
+</body>
+</html>

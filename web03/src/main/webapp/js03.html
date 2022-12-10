@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function login() {
+	// element(엘리먼트는 tag의 정식이름)
+	// getElementById 아이디로 tag를 찾아서 가져와라!
+	// <input id = 'user'>
+	id = document.getElementById('user').value
+	pw = document.getElementById('pw').value
+	
+	if (id == 'root' && pw == '1234') {
+		alert('로그인 성공')
+	} else {
+		alert('로그인 실패')
+	}
+}
+
+function length() {
+	id = document.getElementById('id').value
+	result = ""
+	if (id.length >= 5) {
+		result = "5글자 이상입니다."
+	} else {
+		result = "5글자 미만입니다."
+	}
+	divTag = document.getElementById('result')
+	divTag.innerHTML = result;
+}
+function pwcheck() {
+	pw = document.getElementById('pw').value
+	pw2 = document.getElementById('pw2').value
+	result = "불일치"
+	if (pw == pw2) {
+		result = "일치<img src=img/ok.png width=200px;>"
+	}
+	divTag = document.getElementById('result')
+	divTag.innerHTML = result;
+}
+function login() {
+	id = prompt('id입력')
+	pw = prompt('pw입력')
+	if (id == 'root' && pw == '1234') {
+		location.href = "http://www.naver.com"
+	} else {
+		location.href = "http://www.daum.net"
+	}
+}
+
+function site() {
+	name = prompt('사이트 이름 입력')
+	if (name == '네이버') {
+		location.href = "http://www.naver.com"
+	} else if (name == '구글') {
+		location.href = "http://www.google.com"
+	} else {
+		location.href = "http://www.daum.net"
+	}
+}
+</script>
+<style type="text/css">
+div{
+	color: red;
+}
+</style>
+</head>
+<body>
+<!-- name은 form안에
+서버로 보내기 전에 유효성 검증 > id
+name은 중복될 수 있기 때문에..! id는 unique하게 중복되면 안 됨! -->
+아이디: <input id='id'> <button onclick="length()">글자수 체크</button> <br>
+패스워드: <input id='pw'> <br>
+패스워드2: <input id='pw2'> <button onclick="pwcheck()">패스워드 동일</button> <br>
+<hr>
+<div id='result' style="height: 50px;"></div>
+<hr>
+<div id = 'sitecon' style="width: 500px; height: 50px; background: yellow;">
+	사이트 연결 테스트 <br>
+	<button onclick="login()">로그인 처리 버튼</button>
+	<button onclick="site()">사이트 이동 버튼</button>
+</div>
+</body>
+</html>
