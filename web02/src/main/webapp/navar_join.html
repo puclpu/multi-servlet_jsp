@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="join.jsp">
+<h5>아이디</h5>
+<input type="text" name="id"> <br> 
+<h5>비밀번호</h5>
+<input type="password" name="pw"> <br>
+<h5>비밀번호 재확인</h5>
+<input type="password" name="pw2"> <br>
+<h5>이름</h5>
+<input name="name">
+<h5>생년월일</h5>
+<input name="year">
+<select name="month">
+	<option value="1"> 1월
+	<option value="2"> 2월
+	<option value="3"> 3월
+	<option value="4"> 4월
+	<option value="5"> 5월
+	<option value="6"> 6월
+	<option value="7"> 7월
+	<option value="8"> 8월
+	<option value="9"> 9월
+	<option value="10"> 10월
+	<option value="11"> 11월
+	<option value="12"> 12월
+</select>
+<input name="day">
+<h5>성별</h5>
+<select name="gender">
+	<option value="여성"> 여성
+	<option value="남성"> 남성
+</select>
+<h5>본인확인이메일</h5>
+<input name="email">
+<h5>휴대전화</h5>
+<select name="c_num">
+	<option value="대한민국"> 대한민국 +82
+	<option value="덴마크"> 덴마크 +45
+</select> <br>
+<input name="tel">
+<h5>관심사</h5>
+<input type="checkbox" name="interest" value="카페"> 카페
+<input type="checkbox" name="interest" value="메일"> 메일
+<input type="checkbox" name="interest" value="뉴스"> 뉴스
+<input type="checkbox" name="interest" value="쇼핑"> 쇼핑
+<input type="checkbox" name="interest" value="서적"> 서적
+<h5>하고싶은말</h5>
+<textarea rows="5" cols="10" name="totel"></textarea> <br>
+ 
+<button type="submit">가입하기</button>
+</form>
+
+</body>
+</html>
